@@ -4,68 +4,13 @@ $(document).ready(function(){
 var player;
 var computer;
 
-var comChoice;
+// var comChoice;
 
-var winningArray = [[1,5,9], [3,5,7], [1,2,3], [4,5,6], [7,8,9], [1,4,7], [2,5,8], [3,6,9]];
+//var winningArray = [[1,2,3], [1,4,7], [1,5,9], [2,5,8], [3,5,7], [3,6,9], [4,5,6], [7,8,9]]
 var score = [];
 
-var gameOn = false;
-var gameOn = true;
-
-count = 0;
-count++; //to keep track, there can be a max of 9 turns 
-
-//WINNING 
-//AFTER 3 TURNS FOR 1 PLAYER, START CHECKING IF ANYONE HAS WON
-//need to check at every point if anyone has won 
-//need to constantly check each player's score (after they have 3 or more turns made)
-//if their score matches any of the winningArray
-
-// function computersTurn(){
-// 	var taken = false;
-// 	while (taken === false && count !== 5){ //this is to break out of infinite loop, max count can be 5 or 4
-// 		var computersMove = (Math.random()*10.toFixed());
-// 	}
-// }
-
-// function playerTurn(turn, id){
-// 	var spotTaken = $("#"+ id).text();
-// 	if (spotTaken === #){
-// 		turns[id] = turn;
-// 		$("#"+id).text(turn);
-// 	}
-// }
-
-// $(".tic").click(function(){
-// 	var slot = $(this).attr("id");
-// 	playerTurn(turn, slot);
-// });
-
-// Returns a random integer between min (included) and max (included)
-// Using Math.round() will give you a non-uniform distribution!
-
-$("#generate").click(function getRandom() {
-  var min = 1, max =9;
-  var random = Math.floor(Math.random() * (max - min + 1)) + min;
-  //console.log(random);
-}); //but it also repeats numbers, NO ZERO though!
-
-//I will get an array 
-//there might be a random "undefined", which I would need to skip
-//I can use this array for computer turns ?
-//but I would also need to check if the spot is taken or not 
-
-	// numbers = [1,2,3,4,5,6,7,8,9];
-	// 	var arr = [];
-	// while(arr.length < 9){
-	// 	var random = numbers[Math.floor(Math.random()*10)]; //prints a num between 0 and 9
-	// if(arr.indexOf(random) > -1) continue;
- //    	arr[arr.length] = random;
-	// }
-	// 	console.log(arr);
-
-	//NEED TO ENSURE THAT THE COMPUTER DOESN'T REPEAT THE NUMBERS
-	//do like an array and then change the index to -1 of the taken num?
+var compScore = [];     //global variable to keep track of randoms
+var uniqueComp = [];
 
 //PLAYER CHOOSES X:
 
@@ -80,6 +25,7 @@ $("#generate").click(function getRandom() {
 			e.preventDefault();
 			$("#1").html(player).text("X");
 			score.push(1);
+			score.sort();
 			console.log(score); 
 		})
 
@@ -87,6 +33,7 @@ $("#generate").click(function getRandom() {
 			e.preventDefault();
 			$("#2").html(player).text("X");
 			score.push(2);
+			score.sort();
 			console.log(score); 
 		})
 
@@ -94,6 +41,7 @@ $("#generate").click(function getRandom() {
 			e.preventDefault();
 			$("#3").html(player).text("X");
 			score.push(3);
+			score.sort();
 			console.log(score);
 		})
 
@@ -101,6 +49,7 @@ $("#generate").click(function getRandom() {
 			e.preventDefault();
 			$("#4").html(player).text("X");
 			score.push(4);
+			score.sort();
 			console.log(score);
 		})
 
@@ -109,6 +58,7 @@ $("#generate").click(function getRandom() {
 			e.preventDefault();
 			$("#5").html(player).text("X");
 			score.push(5);
+			score.sort();
 			console.log(score);
 		})
 
@@ -117,6 +67,7 @@ $("#generate").click(function getRandom() {
 			e.preventDefault();
 			$("#6").html(player).text("X");
 			score.push(6);
+			score.sort();
 			console.log(score);
 		})
 
@@ -125,6 +76,7 @@ $("#generate").click(function getRandom() {
 			e.preventDefault();
 			$("#7").html(player).text("X");
 			score.push(7);
+			score.sort();
 			console.log(score);
 		})
 
@@ -133,6 +85,7 @@ $("#generate").click(function getRandom() {
 			e.preventDefault();
 			$("#8").html(player).text("X");
 			score.push(8);
+			score.sort();
 			console.log(score);
 		})
 
@@ -141,6 +94,7 @@ $("#generate").click(function getRandom() {
 			e.preventDefault();
 			$("#9").html(player).text("X");
 			score.push(9);
+			score.sort();
 			console.log(score);
 		})
 
@@ -149,38 +103,81 @@ $("#generate").click(function getRandom() {
 		//this actually selects a random number slot 	wow	
 		//$("#"+random).html(computer);
 		// $("#7").html(computer);
+	
 		$("#generate").click(function getRandom() {
 
 		numbers = [1,2,3,4,5,6,7,8,9];
 			var arr = [];
 		while(arr.length < 9){
-			var random = numbers[Math.floor(Math.random()*10)]; //prints a num between 0 and 9
+			var random = numbers[Math.floor(Math.random()*10)]; //gets a num between 0 and 9
 		if(arr.indexOf(random) > -1) continue;
 	    	arr[arr.length] = random;
 		}
-			console.log(random);
+		compScore.push(random);
 
-  		// console.log(random !== score);
+		compScore = compScore.filter(Number); //removes undefined
+
+		//removes doubles:
+		var uniqueComp = compScore.filter(function(elem, index, self){
+			return index == self.indexOf(elem);
+		});
+
+		uniqueComp.sort();  //sorts from lowest to highest
+		console.log(uniqueComp);
+
+		//removes positions the same as score's:
+		for (var i =0; i < uniqueComp.length; i++){
+			for (var k =0; k < score.length; k++){
+			if (uniqueComp[i] === score[k]){
+				index = uniqueComp.indexOf(score[k]);
+				while (index > -1){
+					uniqueComp.splice(index, 1);
+					console.log(uniqueComp);
+					break;
+				}
+			}
+		  }
+		}
 
   		//THIS HELPED! Now computer CAN'T override mine,
   		//but I can still override computer's ...which is ..hmm... I shouldn't do that 
   		if (score.includes(random) === false) { 
   		$("#"+random).html(computer).text("O");
   		} 
-  		//this makes computer go, anytime I click the "Computer"
-  		//ISSUES: computer still can generate the same numbers, so I might need more clicks
 
-  		// var randoms = [];
-  		// randoms.push(random);
-  		// console.log(randoms);
-  		//this only generates one time, not the previous times
-  		//I need to be able to get an array, so that I can check if computer's won
-  		//Can I check what spots are covered with Os? 
+//[[1,2,3], [1,4,7], [1,5,9], [2,5,8], [3,5,7], [3,6,9], [4,5,6], [7,8,9]]
+
+  		//console.log(uniqueComp.indexOf(1));
+  		//CHECKING FOR THE WINNER:
+
+  		if (uniqueComp.indexOf(1) > -1 && uniqueComp.indexOf(2) > -1 && uniqueComp.indexOf(3) > -1){
+  			console.log("winner");
+  		}
+  		if (uniqueComp.indexOf(1) > -1 && uniqueComp.indexOf(4) > -1 && uniqueComp.indexOf(7) > -1){
+  			console.log("winner");
+  		}
+  		if (uniqueComp.indexOf(1) > -1 && uniqueComp.indexOf(5) > -1 && uniqueComp.indexOf(9) > -1){
+  			console.log("winner");
+  		}
+  		if (uniqueComp.indexOf(2) > -1 && uniqueComp.indexOf(5) > -1 && uniqueComp.indexOf(8) > -1){
+  			console.log("winner");
+  		}
+  		if (uniqueComp.indexOf(3) > -1 && uniqueComp.indexOf(5) > -1 && uniqueComp.indexOf(7) > -1){
+  			console.log("winner");
+  		}
+  		if (uniqueComp.indexOf(3) > -1 && uniqueComp.indexOf(6) > -1 && uniqueComp.indexOf(9) > -1){
+  			console.log("winner");
+  		}
+  		if (uniqueComp.indexOf(4) > -1 && uniqueComp.indexOf(5) > -1 && uniqueComp.indexOf(6) > -1){
+  			console.log("winner");
+  		}
+  		if (uniqueComp.indexOf(7) > -1 && uniqueComp.indexOf(8) > -1 && uniqueComp.indexOf(9) > -1){
+  			console.log("winner");
+  		}
 
 }); //random num function
 
-
-	});
+}); //player chooses x func end
 
 //PLAYER CHOOSES O:
 
@@ -212,7 +209,7 @@ $("#generate").click(function getRandom() {
 			console.log(score); 
 		})
 
-				$("#4").one("click", function(e){
+		$("#4").one("click", function(e){
 			e.preventDefault();
 			$("#4").html(player).text("O");
 			score.push(4);
@@ -227,14 +224,12 @@ $("#generate").click(function getRandom() {
 			console.log(score);
 		})
 
-
 		$("#6").one("click", function(e){
 			e.preventDefault();
 			$("#6").html(player).text("O");
 			score.push(6);
 			console.log(score);
 		})
-
 
 		$("#7").one("click", function(e){
 			e.preventDefault();
@@ -243,14 +238,12 @@ $("#generate").click(function getRandom() {
 			console.log(score);
 		})
 
-
 		$("#8").one("click", function(e){
 			e.preventDefault();
 			$("#8").html(player).text("O");
 			score.push(8);
 			console.log(score);
 		})
-
 
 		$("#9").one("click", function(e){
 			e.preventDefault();
@@ -259,37 +252,6 @@ $("#generate").click(function getRandom() {
 			console.log(score);
 		})
 
-
-	});
-
-
-	//RESULTS:
-	//I also need to SORT the array from smallest to the largest
-	//remove doubles 
-	//or filter score so it only contains one of each number 
-	//then filter winningArray if it matches score or if it includes score?
-
-	// score = [4,5,6];
-
-	// console.log(winningArray[2]);
-	// console.log(score);
-
-	//i iterates through winningArray, and checks for score, returns many falses and a true 
-	//what to do next?
-	for (var i=0; i < winningArray.length; i++){
-		// console.log(JSON.stringify(winningArray[i])==JSON.stringify(score));
-		if (JSON.stringify(winningArray[i]).includes(JSON.stringify(score))){
-			// console.log("yes");
-			// console.log(JSON.stringify(score));
-		}
-		// else {
-		// 	console.log("no");
-		// }
-	}
-
-	//console.log(JSON.stringify(winningArray[i])==JSON.stringify(score));
-
-
-	
+}); //player chooses o func end
 
 }); //doc ready ends
