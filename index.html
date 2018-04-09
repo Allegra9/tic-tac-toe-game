@@ -7,7 +7,7 @@
 <title>Tic Tac Toe Game</title>
     
 <!--Google Fonts-->
-<link href="https://fonts.googleapis.com/css?family=Allura" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
     
 <!--Style sheet -->
 <link href="style.css" rel="stylesheet" type="text/css">
@@ -21,27 +21,38 @@
 </head>
 <body>
 
-	<button type="button" id="generate">Computer</button>
+<div class="container text-center">
 
-<div class="choose-xo">
+  <h1 class="title">tic tac toe</h1>
+
+  <button type="button" id="generate" class="btn-lg">Computer</button>
+
+  <div class="choose-xo">
 	<h6>Select X or O?</h6>
-	<div id="x">X</div>
-	<div id="o">O</div>
-</div>
+	<button id="x" class="btn">X</button>
+	<button id="o" class="btn">O</button>
+  </div>
 
-<div id="game-grid">
-	<button id="1" class="tic">1</button>
-	<button id="2" class="tic">2</button>
-	<button id="3" class="tic">3</button>
+  <div id="status"></div>
+  <p></p>
 
-	<button id="4" class="tic">4</button>
-	<button id="5" class="tic">5</button>
-	<button id="6" class="tic">6</button>
+  <div id="game-grid">
+	<button id="1" class="tic"></button>
+	<button id="2" class="tic"></button>
+	<button id="3" class="tic"></button>
 
-	<button id="7" class="tic">7</button>
-	<button id="8" class="tic">8</button>
-	<button id="9" class="tic">9</button>
-</div>
+	<button id="4" class="tic"></button>
+	<button id="5" class="tic"></button>
+	<button id="6" class="tic"></button>
+
+	<button id="7" class="tic"></button>
+	<button id="8" class="tic"></button>
+	<button id="9" class="tic"></button>
+  </div>
+
+  <button type="button" id="reset" class="btn-lg btn-danger">Reset</button>
+
+</div> 
 
 <!--SCRIPT LINKS END OF BODY-->  
     
