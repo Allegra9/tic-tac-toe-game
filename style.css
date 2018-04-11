@@ -1,14 +1,21 @@
 
+body {
+	background-image: linear-gradient(to bottom, #6287d8, #16acde, #54c8cd, #a0dcbf, #e1edc8);
+	background-repeat: no-repeat;
+	background-size: 150%;
+}
+
 .title {
 	font-family: 'Jua', sans-serif;
-	margin-top: 20px;
+	margin-top: 50px;
+	font-size: 3em;
 }
 
 #generate {
 	background-color: #00b6ff;
 	color: #fff;
-	margin-top: 50px;
-	margin-bottom: 25px;
+	margin-top: 25px;
+	margin-bottom: 20px;
 	font-family: 'Jua', sans-serif;
 }
 
@@ -27,6 +34,14 @@
 	margin-top: 10px;
 	margin-bottom: 20px;
 	font-family: 'Jua', sans-serif;
+}
+
+#x {
+	margin-right: 5px;
+}
+
+#o {
+	margin-left: 5px;
 }
 
 #x:hover, 
@@ -54,14 +69,16 @@ p {
 }
 
 .tic {
-	background-color: green;
+	background-color: #0949b7;
 	width: 50px;
 	height: 50px;
 	padding: 15px;
-	/*margin: 10px;*/
-	color: #fff;
+	margin-bottom: 4px;
+	color: #000;
 	cursor: pointer;
 	font-family: 'Jua', sans-serif;
+	font-size: 1em;
+	/*border: 1px #000 solid;*/
 }
 
 .tic,
@@ -99,7 +116,7 @@ p {
 
 #reset {
 	color: #fff;
-	margin-top: 50px;
+	margin-top: 40px;
 	font-family: 'Jua', sans-serif;
 }
 

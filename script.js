@@ -157,42 +157,42 @@ var compScore = [];     //global variable to keep track of randoms
 
   		if (uniqueComp.indexOf(1) > -1 && uniqueComp.indexOf(2) > -1 && uniqueComp.indexOf(3) > -1){
   			console.log("computer has won!");
-  			$("#status").html("Computer has won!");
+  			$("#status").html("Computer's won!");
   			$("#1, #2, #3").css("background-color","red");
   		}
   		if (uniqueComp.indexOf(1) > -1 && uniqueComp.indexOf(4) > -1 && uniqueComp.indexOf(7) > -1){
   			console.log("computer has won!");
-  			$("#status").html("Computer has won!");
+  			$("#status").html("Computer's won!");
   			$("#1, #4, #7").css("background-color","red");
   		}
   		if (uniqueComp.indexOf(1) > -1 && uniqueComp.indexOf(5) > -1 && uniqueComp.indexOf(9) > -1){
   			console.log("computer has won!");
-  			$("#status").html("Computer has won!");
+  			$("#status").html("Computer's won!");
   			$("#1, #5, #9").css("background-color","red");
   		}
   		if (uniqueComp.indexOf(2) > -1 && uniqueComp.indexOf(5) > -1 && uniqueComp.indexOf(8) > -1){
   			console.log("computer has won!");
-  			$("#status").html("Computer has won!");
+  			$("#status").html("Computer's won!");
   			$("#2, #5, #8").css("background-color","red");
   		}
   		if (uniqueComp.indexOf(3) > -1 && uniqueComp.indexOf(5) > -1 && uniqueComp.indexOf(7) > -1){
   			console.log("computer has won!");
-  			$("#status").html("Computer has won!");
+  			$("#status").html("Computer's won!");
   			$("#3, #5, #7").css("background-color","red");
   		}
   		if (uniqueComp.indexOf(3) > -1 && uniqueComp.indexOf(6) > -1 && uniqueComp.indexOf(9) > -1){
   			console.log("computer has won!");
-  			$("#status").html("Computer has won!");
+  			$("#status").html("Computer's won!");
   			$("#3, #6, #9").css("background-color","red");
   		}
   		if (uniqueComp.indexOf(4) > -1 && uniqueComp.indexOf(5) > -1 && uniqueComp.indexOf(6) > -1){
   			console.log("computer has won!");
-  			$("#status").html("Computer has won!");
+  			$("#status").html("Computer's won!");
   			$("#4, #5, #6").css("background-color","red");
   		}
   		if (uniqueComp.indexOf(7) > -1 && uniqueComp.indexOf(8) > -1 && uniqueComp.indexOf(9) > -1){
   			console.log("computer has won!");
-  			$("#status").html("Computer has won!");
+  			$("#status").html("Computer's won!");
   			$("#7, #8, #9").css("background-color","red");
   		}
 
@@ -347,42 +347,42 @@ var compScore = [];     //global variable to keep track of randoms
 
   		if (uniqueComp.indexOf(1) > -1 && uniqueComp.indexOf(2) > -1 && uniqueComp.indexOf(3) > -1){
   			console.log("computer has won!");
-  			$("#status").html("Computer has won!");
+  			$("#status").html("Computer's won!");
   			$("#1, #2, #3").css("background-color","red");
   		}
   		if (uniqueComp.indexOf(1) > -1 && uniqueComp.indexOf(4) > -1 && uniqueComp.indexOf(7) > -1){
   			console.log("computer has won!");
-  			$("#status").html("Computer has won!");
+  			$("#status").html("Computer's won!");
   			$("#1, #4, #7").css("background-color","red");
   		}
   		if (uniqueComp.indexOf(1) > -1 && uniqueComp.indexOf(5) > -1 && uniqueComp.indexOf(9) > -1){
   			console.log("computer has won!");
-  			$("#status").html("Computer has won!");
+  			$("#status").html("Computer's won!");
   			$("#1, #5, #9").css("background-color","red");
   		}
   		if (uniqueComp.indexOf(2) > -1 && uniqueComp.indexOf(5) > -1 && uniqueComp.indexOf(8) > -1){
   			console.log("computer has won!");
-  			$("#status").html("Computer has won!");
+  			$("#status").html("Computer's won!");
   			$("#2, #5, #8").css("background-color","red");
   		}
   		if (uniqueComp.indexOf(3) > -1 && uniqueComp.indexOf(5) > -1 && uniqueComp.indexOf(7) > -1){
   			console.log("computer has won!");
-  			$("#status").html("Computer has won!");
+  			$("#status").html("Computer's won!");
   			$("#3, #5, #7").css("background-color","red");
   		}
   		if (uniqueComp.indexOf(3) > -1 && uniqueComp.indexOf(6) > -1 && uniqueComp.indexOf(9) > -1){
   			console.log("computer has won!");
-  			$("#status").html("Computer has won!");
+  			$("#status").html("Computer's won!");
   			$("#3, #6, #9").css("background-color","red");
   		}
   		if (uniqueComp.indexOf(4) > -1 && uniqueComp.indexOf(5) > -1 && uniqueComp.indexOf(6) > -1){
   			console.log("computer has won!");
-  			$("#status").html("Computer has won!");
+  			$("#status").html("Computer's won!");
   			$("#4, #5, #6").css("background-color","red");
   		}
   		if (uniqueComp.indexOf(7) > -1 && uniqueComp.indexOf(8) > -1 && uniqueComp.indexOf(9) > -1){
   			console.log("computer has won!");
-  			$("#status").html("Computer has won!");
+  			$("#status").html("Computer's won!");
   			$("#7, #8, #9").css("background-color","red");
   		}
 
@@ -438,7 +438,7 @@ var compScore = [];     //global variable to keep track of randoms
 
   	//RESET BUTTON:
 	$("#reset").one("click", function(e){
-		location.reload(); //reloads the whole page
+		history.go(0);   //reloads the whole page
 		e.preventDefault();
 
 	});
